@@ -34,5 +34,53 @@
   if (empty($a)) {
     // ここに処理
   }
-  
+
+  // isset関数またはis_null関数の使用
+  if (isset($a)) {
+    // ここに処理
+  }
+  if (is_null($a)) {
+    // ここに処理
+  }
+
+  // is_null関数と厳密な比較演算子の組み合わせ
+  if (is_null($a) || $a === '') {
+    // ここに処理
+  }
+
+  // switch構文
+  $message = '';
+  $extension = 'svg';
+  switch ($extension) {
+    case 'jpg':
+      $message = 'jpg画像です';
+      break;
+    case 'png':
+      $message = 'png画像です';
+      break;
+    case 'gif':
+      $message = 'gif画像です';
+      break;
+    case 'bmp':
+    case 'svg':
+      $message = 'bmpまたはsvg画像です';
+      break;
+    default:
+      $message = 'その他の形式です';
+  }
+  echo $message;
+
+  // exit命令とdie命令
+  $score = -100;
+  if ($score < 0) {
+    echo 'スコアは正の数でなければなりません。';
+    exit(1);
+  }
+  echo `スコアは：${score}点です。`;
+
+  $score = -100;
+  if ($score < 0) {
+    die('スコアは正の数でなければなりませ。');
+  }
+  echo `スコアは：${score}点です。`;
 ?>
