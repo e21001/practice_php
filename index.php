@@ -71,16 +71,64 @@
   echo $message;
 
   // exit命令とdie命令
-  $score = -100;
+  $score = 100;
   if ($score < 0) {
     echo 'スコアは正の数でなければなりません。';
     exit(1);
   }
-  echo `スコアは：${score}点です。`;
+  echo `スコアは：', $score, '点です。`;
 
-  $score = -100;
+  $score = 100;
   if ($score < 0) {
     die('スコアは正の数でなければなりませ。');
   }
-  echo `スコアは：${score}点です。`;
+  echo 'スコアは：', $score, '点です。';
+?>
+
+<?php
+  // foreach構文　用途(配列・連想配列)
+  $colors = ['赤','青','黄'];
+  foreach ($colors as $color) {
+    echo $color;
+    echo '<br>';
+  }
+
+  $fruits = [
+    'りんご' => 'apple',
+    'ぶどう' => 'grape',
+    'みかん' => 'orange'
+  ];
+  foreach ($fruits as $japanese => $english) {
+    echo "日本語名：{$japanese} 英語名：{$english}";
+    echo '<br>';
+  }
+
+  // リファレンス私によるforeach
+  $numbers = [3, 5, -1, 2];
+  foreach ($numbers as &$number) {
+    if ($number < 0) {
+      $number = 0;
+    }
+  }
+  unset($number);
+
+  print_r($numbers);
+
+  // for構文を配列のループ処理に使う
+  $lines = [
+    'いろはにほへと',
+    'ちりぬるを',
+    'わかよたれそ'
+  ];
+  for ($i = 0; $i < count($lines); $i += 1) {
+    echo $i + 1, '行目：', $lines[$i], PHP_EOL;
+  }
+
+  // while構文
+  $num = 100;
+  while ($num < 200) {
+    echo $num, PHP_EOL;
+    $num += 30;
+  }
+  echo '$numが200を超えたためループを抜けました。';
 ?>
