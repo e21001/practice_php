@@ -148,5 +148,42 @@
     $total += $number;
   }
   echo "合計：{$total}";
-  
+
+  // 関数
+
+  // return命令は関数を途中で終わらせる
+  function add($a, $b) {
+    if ($a <= 0) {
+      echo '引数は正の数で指定してください';
+      return;
+    }
+    if ($b <= 0) {
+      echo '引数は正の数で指定してください';
+      return;
+    }
+    $total2 = $a + $b;
+    echo '合計は', $total2, PHP_EOL;
+    return $total2;
+  }
+
+  $total2 = add(5, -5);
+  echo $total2;
+
+  // 関数から別の関数をコールする
+  function checkNumber($value) {
+    return is_numeric($value) && (int)$value > 0;
+  }
+  function add2($x, $y) {
+    if (!checkNumber($x) || !checkNumber($y)) {
+      return 'INVALID';
+    }
+    $total3 = $x + $y;
+    return $total3;
+  }
+
+  $result = add2(3, 10);
+  echo "計算結果：{$result}";
+
+  $result = add2(5, -4);
+  echo "計算結果：{$result}";
 ?>
