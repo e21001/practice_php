@@ -186,4 +186,27 @@
 
   $result = add2(5, -4);
   echo "計算結果：{$result}";
+
+  // デフォルト引数
+  function calcPriceTax(int $price, float $tax = 0.08): float {
+    $result = $price * (1 + $tax);
+    return $result;
+  }
+
+  $priceWithTax = calcPriceTax(1000);
+  echo $priceWithTax;
+
+  // 可変長引数
+  // function dosomething(array $datas)
+  // function dosomething(string ...$datas)
+
+  function add3(string $header, int ...$numbers2): string {
+    $total4 = 0;
+    foreach ($numbers2 as $number2) {
+      $total4 += $number2;
+    }
+    return $header . $total4;
+  }
+  $result3 = add('計算結果：', 3, 2, 9, 1);
+  echo $result3;
 ?>
