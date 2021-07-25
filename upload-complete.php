@@ -14,7 +14,7 @@ function validate(): array {
   }
 
   // ファイル名から拡張子をチェックする
-  if (!in_array(getExtension($_FILES['image1']['name']), ['jpg', 'jpeg', 'png', 'gif'])) {
+  if (!in_array(getExtension($_FILES['image1']['name']), ['jpg', 'jpeg', 'JPG', 'png', 'gif'])) {
     return [false, '画像ファイルのみアップロード可能です'];
   }
 
